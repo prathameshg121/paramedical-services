@@ -4,9 +4,13 @@ const ShortUniqueId = require('short-unique-id');
 const uid = new ShortUniqueId({ length: 8 });
 var id = uid;
 
-const appliSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     uId: { type: String, default: id },
+ 
+    
+    FName: { type: String },
+    LName: { type: String },
     email: {
         type: String,
         required: true,
@@ -14,14 +18,7 @@ const appliSchema = mongoose.Schema({
         match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     },
     password: { type: String, required: true },
-    gender :{type:String},
-    profession :{type:String},
-    FName: { type: String },
-    LName: { type: String },
-    UserName: { type: String, default:"appli" },
-    City: { type: String },
-    phoneNo: { type: Number, default: 123 },
 
 });
 
-module.exports = mongoose.model('Appli', appliSchema);
+module.exports = mongoose.model('User', userSchema);

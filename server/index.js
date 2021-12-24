@@ -5,9 +5,8 @@ const morgan = require('morgan');
 const router = express.Router();
 mongoose.connect('mongodb+srv://admin:4vlZxifrsp3ihXCz@pmcluster.wbsdh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
-
 const AppliRoutes = require('./api/routes/AppliRoute')
-
+const UserRoutes = require('./api/routes/UserRoute')
 
 const app = express();
 // Log request data
@@ -32,7 +31,8 @@ app.use((req, res, next) => {
 });
 
 // Routes which should handle requests
-app.use('/', AppliRoutes);
+app.use('/appli', AppliRoutes);
+app.use('/user', UserRoutes);
 
 // Handle Error Requests
 app.use((req, res, next) => {
@@ -41,6 +41,7 @@ app.use((req, res, next) => {
     error.status = 404;
     next(error);
 });
+
 
 
 

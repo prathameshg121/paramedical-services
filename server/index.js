@@ -7,6 +7,7 @@ mongoose.connect('mongodb+srv://admin:4vlZxifrsp3ihXCz@pmcluster.wbsdh.mongodb.n
 
 const AppliRoutes = require('./api/routes/AppliRoute')
 const UserRoutes = require('./api/routes/UserRoute')
+const Services = require('./api/routes/ServiceRoute')
 
 const app = express();
 // Log request data
@@ -33,11 +34,12 @@ app.use((req, res, next) => {
 // Routes which should handle requests
 app.use('/appli', AppliRoutes);
 app.use('/user', UserRoutes);
+app.use('/service', Services);
 
 // Handle Error Requests
 app.use((req, res, next) => {
     const error = new Error();
-    error.message = 'Not Found mc bc lawada';
+    error.message = 'Not Found law';
     error.status = 404;
     next(error);
 });

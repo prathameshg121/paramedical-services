@@ -67,7 +67,7 @@ exports.get_Request_byDate = (req, res, next) => {
       if (error) {
         console.log("data of blood band not found");
       } else {
-        // console.log(data);
+        console.log(data);
         res.status(200).json(data);
       }
     });

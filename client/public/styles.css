@@ -8,7 +8,7 @@ body {
     width: auto;
     height: 100%;
 	color: #fff;
-  margin: 8% 20%;
+  margin: 6% 20%;
   margin-top: 2%;
   padding-top: 4%;
   padding-bottom: 1%;
@@ -822,3 +822,11 @@ padding: 5%;
   width: 40%;
 }
 
+.locate-btn-get{
+  margin-left: 15%;
+}
+
+.sidebar h4{
+  margin-left: 4%;
+  color: #00c6ff;
+}

@@ -25,7 +25,7 @@ export default function App() {
 
         <Router>
             <Route path ="/" exact>
-            <UserHomePage />
+            <WelcomPage />
             </Route>
             <Route path = "/UserSignUp" exact>
                 <UserSignUp/>

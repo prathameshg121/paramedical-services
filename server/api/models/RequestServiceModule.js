@@ -14,6 +14,9 @@ const requestSchema = mongoose.Schema({
     email :{type:String},
     serviceName : {type :String},
     District : {type:String},
+    Date : {type:Date},
+    Month : {type : String},
+    Year : {type : String},
     Latitude : {type : String},
     Longitude : {type : String},
  

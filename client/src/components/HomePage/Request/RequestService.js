@@ -13,20 +13,37 @@ let count =0;
 export default function RequestService(){
 
 
+  let newDate = new Date()
+let date = newDate.getDate();
+let month = newDate.getMonth() + 1;
+let year = newDate.getFullYear();
+
+
     const history = useHistory()
-    const [reqLoc, setreqLoc] = useState(true)
+    const [reqLoc, setreqLoc] = useState(false)
     const [requestData, setrequestData] = useState({
         FName:"",
         LName:"",
         email:"",
         serviceName :"",
         District:"",
+        Date : newDate,
+        Month : month,
+        Year : year,
         Latitude:"",
         Longitude:"",
     })
 
-    const [lat, setlat] = useState("")
-    const [long, setlong] = useState("")
+  
+
+    function updateLocation(){
+      setreqLoc(true);
+      if(requestData.Latitude != ""){
+        window.location.reload();
+      }
+      
+     
+    }
 
    
     function handleChange(event){
@@ -78,8 +95,8 @@ export default function RequestService(){
         userLong = bbox[0];
         
         if(userLong && count <5){
-            setlat(bbox[1]);
-            setlong(bbox[0]);
+            // setlat(bbox[1]);
+            // setlong(bbox[0]);
             setrequestData((preValues) => {
                 return {
                   ...preValues,
@@ -126,8 +143,8 @@ export default function RequestService(){
     return(
         <div>
 
-        {/* {
-            reqLoc ?( */}
+        {
+            reqLoc ?(
                 <div style={{width:"0px", height:"0px"}}>
         <MapContainer style={{width:"0px", height:"0px"}}
         center={[17.3674,76.5359]}
@@ -143,10 +160,10 @@ export default function RequestService(){
         <LocationMarker/>
       </MapContainer>
        </div>
-            {/* )
+            )
             :
             ("")
-        } */}
+        }
 
 
         
@@ -174,23 +191,36 @@ export default function RequestService(){
        </div>
        <div class="form-group">
            <input type="name" class="form-control" onChange={handleChange}  name="District" placeholder="District"  value={requestData.District}  required="required"/>
+           <select
+        class="form-select"
+        aria-label="Default select example"
+        name="state"
+      >
+        <option selected>All</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Karnataka">Karnataka</option>
+      </select>
        </div>
 
 
         <div style={{display:"inline-flex"}}>
        <div class="form-group">
-           <input type="name" class="form-control" style={{width:"70%"}} onChange={handleChange}  name="Latitude" placeholder="Latitude" value={lat}   required="required"/>
+           <input type="name" class="form-control" style={{width:"70%"}} onChange={handleChange}  name="Latitude" placeholder="Latitude" value={requestData.Latitude}   required="required"/>
 
        </div>
 
        <div class="form-group">
-       <input type="name" class="form-control" style={{width:"70%"}} onChange={handleChange} name="Longitude" placeholder="Longitude"  value={long}  required="required"/>
+       <input type="name" class="form-control" style={{width:"70%"}} onChange={handleChange} name="Longitude" placeholder="Longitude"  value={requestData.Longitude}  required="required"/>
        </div>
        </div>
             
      
        <div class="form-group">
            <button  type="submit" class="btn btn-primary btn-lg" onClick={uploadRequest}>Upload</button>
+           <button   class="btn btn-primary btn-lg locate-btn-get" onClick={updateLocation} >Locate Me <i class="fas fa-map-marker-alt"></i></button>
        </div>
    </form>
  

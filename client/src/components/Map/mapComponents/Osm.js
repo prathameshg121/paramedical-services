@@ -82,7 +82,7 @@ export default function Osm(props) {
       .post(`http://localhost:5000/request/getrequestbydate`, data)
       .then((res) => {
         console.log("healthFacilities found req by date ");
-        console.log(res.data[0].Longitude);
+        console.log(res.data);
         setfilterData(res.data);
         //  setVaccinData(res.data)
         //  setservicetype("Vaccination")
@@ -390,8 +390,10 @@ setDateval(event.target.value)
                     <h4>{serviceData.District}</h4>
                     <h4>{serviceData.Block_Name}</h4>
                     <h4>{serviceData.Address}</h4>
+                    <h4>{serviceData.Date}</h4>
                     <h4>{serviceData.Latitude}</h4>
                     <h4>{serviceData.Longitude}</h4>
+                    
                   </div>
                 </Popup>
               </Marker>

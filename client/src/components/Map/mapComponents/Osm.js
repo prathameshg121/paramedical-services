@@ -15,7 +15,7 @@ export default function Osm(props) {
 
   const [latlongDisplay, setlatlongDisplay] = useState("");
 
-  let [state, setstate] = useState("");
+  let [stateval, setstate] = useState("");
 
   let [serv, setserv] = useState({});
 
@@ -26,6 +26,7 @@ export default function Osm(props) {
 
   let [radiusValue, setradiusValue] = useState(100);
   const [nearByMe, setnearByMe] = useState(false);
+  const [districtshow, setdistrictshow] = useState(false)
   let userLat = "";
   let userLong = "";
   function getBloodData() {
@@ -91,21 +92,22 @@ export default function Osm(props) {
         console.log("get req by date Data not found");
       });
   }
-  //   useEffect(() => { 
+  //   useEffect(() => { getrequestbyservice
 
   // }, [])
 
 
-  function getRequestByService() {
+  function getRequestByState() {
    
     var data = {
-      date : Dateval
+      district : stateval
     }
+    console.log("data + of state " + stateval);
     axios
-      .post(`http://localhost:5000/request/getrequestbydate`, data)
+      .post(`http://localhost:5000/request/getrequestbysatate`, data)
       .then((res) => {
         console.log("healthFacilities found req by facility ");
-        console.log(res.data[0].Longitude);
+        console.log(res.data);
         setfilterData(res.data);
         //  setVaccinData(res.data)
         //  setservicetype("Vaccination")
@@ -271,6 +273,14 @@ setDateval(event.target.value)
  setfindbyDate(!findbyDate)
   }
 
+
+  function handleStateChange(event){
+    setstate(event.target.value);
+  }
+  function displaystateblock(){
+    setdistrictshow(!districtshow)
+  }
+
   return (
     <div>
       {/* 
@@ -358,11 +368,81 @@ setDateval(event.target.value)
             </div>
             ) : ("")
           }
+
+
+          <a
+            class="button round blue"
+            style={{ width: "50%" }}
+            onClick={displaystateblock}
+          >Find By state </a>
+            {
+              districtshow?(
+                <div class="near-by-container">
+              <h4>Find by state </h4>
+              <select
+        class="form-select nnnm"
+        onChange={handleStateChange}
+        aria-label="Default select example"
+        name="state"
+        
+       
+      >
+        <option selected>All</option>
+        <option value="Ahmednagar">Ahmednagar</option>
+        <option value="Akola">Akola</option>
+        <option value="Amravati">Amravati</option>
+        <option value="Aurangabad">Aurangabad</option>
+        <option value="Beed">Beed</option>
+        <option value="Bhandara">Bhandara</option>
+        <option value="Buldhana">Buldhana</option>
+        <option value="Chandrapur">Chandrapur</option>
+        <option value="Dhule">Dhule</option>
+        <option value="Gadchiroli">Gadchiroli</option>
+        <option value="Gondia">Gondia</option>
+        <option value="Hingoli">Hingoli</option>
+        <option value="Jalgaon">Jalgaon</option>
+        <option value="Jalna">Jalna</option>
+        <option value="Kolhapur">Kolhapur</option>
+        <option value="Latur">Latur</option>
+        <option value="Mumbai-City">Mumbai-City</option>
+        <option value="Mumbai-Suburban">Mumbai-Suburban</option>
+        <option value="Nagpur">Nagpur</option>
+        <option value="Nanded">Nanded</option>
+        <option value="Nandurbar">Nandurbar</option>
+        <option value="Osmanabad">Osmanabad</option>
+        <option value="Palghar">Palghar</option>
+        <option value="Parbhani">Parbhani</option>
+        <option value="Pune">Pune</option>
+        <option value="Raigad">Raigad</option>
+        <option value="Ratnagiri">Ratnagiri</option>
+        <option value="Sangli">Sangli</option>
+        <option value="Satara">Satara</option>
+        <option value="Sindhudurg">Sindhudurg</option>
+        <option value="Solapur">Solapur</option>
+        <option value="Thane">Thane</option>
+        <option value="Wardha">Wardha</option>
+        <option value="Washim">Washim</option>
+        <option value="Yavatmal">Yavatmal</option>
+
+
+        {/* */}
+        
+      </select>
+              <button
+          style={{color:"black"}}
+            onClick={getRequestByState}
+          >
+            Find
+          </button>
+            </div>
+              ):("")
+            }
+        
         
         </div>
 
         <div class="content" id="home">
-          <h2>{servicetype} Services</h2>
+          <h2 style={{color:"white"}}>{servicetype} Services</h2>
           {/* <h3>Availability : {availabilityCount}</h3> */}
           <MapContainer
             center={[17.3674, 76.5359]}

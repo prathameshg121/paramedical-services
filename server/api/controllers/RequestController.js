@@ -72,3 +72,50 @@ exports.get_Request_byDate = (req, res, next) => {
       }
     });
   };
+
+  exports.get_Requestby_state = (req, res, next) => {
+    console.log("this is date")
+    console.log(req.body.district);
+    Request_service.find({District :  req.body.district}, (error, data) => {
+      if (error) {
+        console.log("data of req state");
+      } else {
+        console.log(data);
+        res.status(200).json(data);
+      }
+    });
+  };
+
+
+
+  
+// exports.getByProfession = (req, res, next) => {
+//   console.log(req.params.profe)
+//   Appli.find({profession :req.params.profe })
+//   .then(applis => {
+//     const response = {
+//       count: applis.length,
+//       applis: applis.map(appli => {
+//         return {
+//           _id: appli._id,
+//           email: appli.email,
+//                       password : appli.password,
+//           gender: appli.gender,
+//                       profession : appli.profession,
+//                       FName: appli.FName,
+//                       LName: appli.LName,
+//                       UserName: appli.UserName,
+//                       City: appli.City,
+//                       phoneNo : appli.phoneNo,
+          
+//         }
+//       })
+//     };
+//     res.status(200).json(response);
+//           // console.log(response);
+//   })
+//   .catch(error => {
+//     next(error);
+//   })
+    
+// }

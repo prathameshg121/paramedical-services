@@ -2,7 +2,23 @@ body {
     background-color: #dd1111;
 	
   }
+  body{
+    gradient(circle, rgb(65, 102, 202) -60%, rgba(0, 0, 0, 0.8901960784313725) 75%);
+        background: -webkit-radial-gradient(circle, rgb(65, 102, 202) -60%, rgba(0, 0, 0, 0.8901960784313725) 75%);
+        background: -moz-radial-gradient(circle, rgb(65, 102, 202) -60%, rgba(0, 0, 0, 0.8901960784313725) 75%);
+        background: -o-radial-gradient(circle, rgb(65, 102, 202) -60%, rgba(0, 0, 0, 0.8901960784313725) 75%);
+  }
   
+   select {
+        width: 150px;
+        margin: 10px;
+        size:5;
+    }
+  .nnnm select:focus {
+        min-width: 150px;
+        width: auto;
+        size:5;
+    }
 
   .SignUp {
     width: auto;
@@ -13,7 +29,7 @@ body {
   padding-top: 4%;
   padding-bottom: 1%;
   border-radius: 30px;
-	background: #3598dc;
+	background: #168b9b;
 	font-family: 'Roboto', sans-serif;
 }
 .form-control {
@@ -652,10 +668,16 @@ h6 {
      width: 100%;
      padding: 1px 90px 1px 90px;
      text-align: center;
-     background-color: #9fdaff;
+     background-color: #262c6e;
     position: relative;
  
    }
+   #features h3{
+     color: white;
+   }
+   #features p{
+    color: white;
+  }
    .features-class{
      padding: 5%;
    }
@@ -688,7 +710,7 @@ h6 {
      padding-top: 90px;
      width: 100%;
      height: auto;
-     background-color: rgb(118, 115, 115);
+     background-color: #ebe9e9;
      color: black;
    }
    .testimonial-image{
@@ -826,7 +848,12 @@ padding: 5%;
   margin-left: 15%;
 }
 
+.sidebar{
+  background-color: #5ab4bb;
+}
+
 .sidebar h4{
   margin-left: 4%;
   color: #00c6ff;
+
 }

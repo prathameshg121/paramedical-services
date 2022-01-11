@@ -26,7 +26,7 @@ export default function WelcomPage(){
       <section id="starter">
       <div className=" row homeContainer w-100">
         <div className=" col-lg-6 features-class banner">
-          <h1>Paramediacal Services</h1>
+          <h1>Paramedical Services</h1>
           <h3>Bring The Future of</h3>
           <h3>Helth Care</h3>
           <button onClick={UserSignUpPage}>Get Started</button><br/>
@@ -49,7 +49,7 @@ export default function WelcomPage(){
 
 
 <i class=" featureicon fas fa-map-marker-alt"></i>
-          <h3>Maped Servevices</h3>
+          <h3>Maped services </h3>
           <p>Get the near by health care services. Search by state, location, service type </p>
 </div>
 <div class="col-lg-3 features-class">

@@ -192,9 +192,11 @@ let year = newDate.getFullYear();
        <div class="form-group">
            <input type="name" class="form-control" onChange={handleChange}  name="District" placeholder="District"  value={requestData.District}  required="required"/>
            <select
-        class="form-select"
+        class="form-select nnnm"
         aria-label="Default select example"
         name="state"
+        
+       
       >
         <option selected>All</option>
         <option value="Ahmednagar">Ahmednagar</option>

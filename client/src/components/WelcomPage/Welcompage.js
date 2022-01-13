@@ -7,7 +7,7 @@ export default function WelcomPage(){
       let history = useHistory()
 
   function UserSignUpPage(){
-      history.push("/UserSignUp")
+      history.push("/UserHomePage")
   }
 
   function ApplicationPage(){
@@ -30,8 +30,8 @@ export default function WelcomPage(){
           <h3>Bring The Future of</h3>
           <h3>Helth Care</h3>
           <button onClick={UserSignUpPage}>Get Started</button><br/>
-          <button onClick={ApplicationPage}>Apply</button>
-          <button onClick={ShowMap}> Map </button>
+          {/* <button onClick={ApplicationPage}>Apply</button> */}
+          {/* <button onClick={ShowMap}> Map </button> */}
          
         </div>
 
@@ -77,7 +77,7 @@ export default function WelcomPage(){
 
       <div>
         <section id="spon">
-          <div>
+          {/* <div>
             <h3>spon</h3>
             <img className="testimonial-image" src="https://s.tmimgcdn.com/scr/800x500/110300/medical-tech-logo-template_110323-original.jpg" />
             <img className="testimonial-image" src="https://thumbs.dreamstime.com/b/globe-world-medical-logo-template-vector-concept-icon-element-sign-white-background-ai-illustrations-company-clean-water-131866593.jpg" />
@@ -85,44 +85,40 @@ export default function WelcomPage(){
             <img className="testimonial-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRJdFKLbjREZCXvr2HamuPbP8d6zJVnpmvBw&usqp=CAU" />
             <img className="testimonial-image" src="https://png.pngtree.com/png-clipart/20200710/original/pngtree-medical-logo-and-icon-design-png-image_4149062.jpg" />
             <img className="testimonial-image" src="https://images.assetsdelivery.com/compings_v2/sokolfly/sokolfly1806/sokolfly180600220.jpg" />
-          </div>
+          </div> */}
 
-          <div>
+          <div class ="table-home">
             <table>
               <tr>
                 <th>Explore</th>
                 <th>Contacts</th>
-                <th>Follow</th>
                 <th>Legal</th>
               </tr>
+             
               <tr>
                 <td>Home</td>
-                <td> +0999901</td>
-                <td>Instagram</td>
+                <td>+0999901</td>
                 <td>Terms</td>
               </tr>
               <tr>
                 <td>About</td>
-                <td> abc@make.com</td>
-                <td>Facebook</td>
+                <td>abc@make.com</td>
                 <td>Privacy</td>
               </tr>
-              <tr>
-                <td>Features</td>
-                <td></td>
-                <td>Twitter</td>
-              </tr>
-              <tr>
-                <td>Spon</td>
-                <td></td>
-                <td></td>
-              </tr>
+              
+           
             </table>
           </div>
+<h5>Follow</h5>
+          <a hrf="https://twitter.com/minimalmonkey" class="icon-button twitter"><i class="fab fa-twitter icon-twitter"></i><span></span></a>
+<a href="https://facebook.com" class="icon-button facebook"><i class="fab fa-facebook-f icon-facebook"></i><span></span></a>
+<a href="https://plus.google.com" class="icon-button google-plus"><i class="fab fa-google-plus-g icon-google-plus"></i><span></span></a>
+    
+
         </section>
       </div>
+      
     </div>
-    
 
     
     </div>

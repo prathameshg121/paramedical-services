@@ -4,11 +4,11 @@ export const ContactUs = (props) => {
   return (
     <div className="contact_info">
       <div className="container-fluid">
-        <div className="row">
+        <div className="row contact-card">
           <div className="col-lg-10 offset-lg-1 d-flex justify-content-between m-5 ml-3">
             {/* Phone Number */}
 
-            <div className="text-center shadow px-3 contact_info_item border  d-flex align-items-center ">
+            <div className="text-center shadow px-3 phone-info contact_info_item border  d-flex align-items-center " >
               <img src="https://img.icons8.com/office/24/000000/iphone.png " />
               <div className="contact_info_content ml-3 ">
                 <div className="font-weight-bold contact_info_title">Phone</div>
@@ -39,13 +39,14 @@ export const ContactUs = (props) => {
 
       {/* Contact Form */}
 
-      <div className="contact_form ">
-        <div className="container shadow">
+      <div className="contact_form" >
+        <div className="container shadow  border">
           <div className="row">
             <div className="col-lg-10 offset-lg-1">
               <div className="contact_form_container py-5">
-                  <div className="contact_form_title text-bold center">
-                      Get In Touch
+                  <div className="contact_form_title get-in-touch  text-bold center">
+                     
+                      <h1>Get In Touch</h1>
                   </div>
 
                   <form id="contact_form">
@@ -63,7 +64,7 @@ export const ContactUs = (props) => {
 
 
                     <div className="contact_form_text mt-5">
-                        <textarea className="text_field contact_form_message" placeholder="Message" cols="30" rows="10"></textarea>
+                        <textarea className="text_field contact_form_message" placeholder="Message" cols="122" rows="10"></textarea>
                     </div>
                   </form>
               </div>

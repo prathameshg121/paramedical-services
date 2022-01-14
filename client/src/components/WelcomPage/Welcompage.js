@@ -24,7 +24,7 @@ export default function WelcomPage() {
       {/* <a href="">
             <img src={require('./logo.jpg').default} height={50} width={100} />
         </a> */}
-      <Header />
+      <Header class="header-class" />
 
       <div className="homepage ">
         <section id="starter">
@@ -92,7 +92,7 @@ export default function WelcomPage() {
           </div> */}
 
             <div class="table-home">
-              <table>
+              <table >
                 <tr>
                   <th>Explore</th>
                   <th>Contacts</th>
@@ -101,29 +101,32 @@ export default function WelcomPage() {
 
                 <tr>
                   <td>Home</td>
-                  <td>+0999901</td>
+                  <td>+91 724 044 2912 </td>
                   <td>Terms</td>
                 </tr>
                 <tr>
                   <td>About</td>
-                  <td>abc@make.com</td>
+                  <td>servil2@gmail.com</td>
                   <td>Privacy</td>
                 </tr>
               </table>
             </div>
+            <hr class="end-homepage-line"></hr>
             <h5>Follow</h5>
-            <a
+            <a style={{margin:"15px"}}
               hrf="https://twitter.com/minimalmonkey"
               class="icon-button twitter"
             >
               <i class="fab fa-twitter icon-twitter"></i>
               <span></span>
             </a>
-            <a href="https://facebook.com" class="icon-button facebook">
+            <a style={{margin:"15px"}}
+             href="https://facebook.com" class="icon-button facebook">
               <i class="fab fa-facebook-f icon-facebook"></i>
               <span></span>
             </a>
-            <a href="https://plus.google.com" class="icon-button google-plus">
+            <a style={{margin:"15px"}} 
+            href="https://plus.google.com" class="icon-button google-plus">
               <i class="fab fa-google-plus-g icon-google-plus"></i>
               <span></span>
             </a>

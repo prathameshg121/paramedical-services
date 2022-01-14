@@ -11,6 +11,20 @@ export default function Header(props) {
     history.push("./ContactUs")
   }
 
+  function goToHome(){
+    history.push("./")
+  }
+  function goToMap(){
+    history.push("./map");
+  }
+
+  function goToRequest(){
+    history.push("./requestService");
+  }
+  function goToServices(){
+    history.push("./Services");
+  }
+
   
 
   return (
@@ -37,15 +51,26 @@ export default function Header(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 ml-auto mr-3 mb-lg-0 style={}">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active"  aria-current="page" href="#" onClick={goToHome}>
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="#" onClick={goToMap}>
+                  Map
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#" onClick={goToRequest}>
+                  Request
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#" onClick={goToServices}>
                   Services
                 </a>
               </li>
+              
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   About

@@ -1,9 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router";
 
 import PropTypes from 'prop-types'
+import { ContactUs } from "../ContactUs/ContactUs";
 
 
 export default function Header(props) {
+  let history = useHistory();
+  function toContactUs(){
+    history.push("./ContactUs")
+  }
+
+  
+
   return (
     <div >
       <nav className=" header4 navbar navbar-sm navbar-expand-lg navbar-dark bg-dark h-5 ">
@@ -43,7 +52,7 @@ export default function Header(props) {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" onClick={toContactUs} href="#">
                   Contact Us
                 </a>
               </li>

@@ -17,6 +17,7 @@ export default function WelcomPage() {
   function ShowMap() {
     history.push("./Map");
   }
+  
 
   return (
     <div>

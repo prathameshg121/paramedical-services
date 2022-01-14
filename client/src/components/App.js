@@ -14,6 +14,7 @@ import UserLogin from "./Login/UserLogin";
 import Map from "./Map/mapComponents/Osm"
 import ServicesCard from "./HomePage/DisplayServices/ServicesCard"
 import RequestService from "./HomePage/Request/RequestService";
+import { ContactUs } from "./HomePage/ContactUs/ContactUs";
 export default function App() {
     const [chooseProfe, setchooseProfe] = useState("")
   const [latlongval, setlatlongval] = useState({
@@ -64,6 +65,9 @@ export default function App() {
             </Route>
             <Route path ="/requestService" exact>
                 <RequestService/>
+            </Route>
+            <Route path ="/ContactUs" exact>
+                <ContactUs/>
             </Route>
         </Router>
         

@@ -297,7 +297,7 @@ setDateval(event.target.value)
             style={{ color: "#3edbf0", cursor: "pointer" }}
             onClick={getVacciData}
           >
-            Vaccin Center
+            Vaccine Center
           </a>
 
           <a
@@ -314,7 +314,7 @@ setDateval(event.target.value)
           {nearByMe ? (
             <div class="near-by-container">
               <p style={{ color: "#3edbf0" }}>Near by services</p>
-              <h6>Enter Radius in Km</h6>
+              <h6 style={{ color: "#3edbf0" }}>Enter Radius in Km</h6>
               <input onChange={handleRadiusChange} value={radiusValue}></input>
               <button onClick={getDataUnderRadi} style={{ color: "black" }}>
                 Find
@@ -357,7 +357,7 @@ setDateval(event.target.value)
           {
             findbyDate ? (
               <div class="near-by-container">
-              <h4>Find Till the date </h4>
+              <h4>Find From the date </h4>
               <input type="date" onChange={handleDateVal} value={Dateval}></input>
               <button
           style={{color:"black"}}
@@ -374,7 +374,7 @@ setDateval(event.target.value)
             class="button round blue"
             style={{ width: "50%" }}
             onClick={displaystateblock}
-          >Find By state </a>
+          >Find By District </a>
             {
               districtshow?(
                 <div class="near-by-container">
@@ -442,7 +442,7 @@ setDateval(event.target.value)
         </div>
 
         <div class="content" id="home">
-          <h2 style={{color:"white"}}>{servicetype} Services</h2>
+          <h2 style={{color:"Black"}}>{servicetype} Services</h2>
           {/* <h3>Availability : {availabilityCount}</h3> */}
           <MapContainer
             center={[17.3674, 76.5359]}
@@ -462,17 +462,18 @@ setDateval(event.target.value)
               >
                 <Popup position={[serviceData.Latitude, serviceData.Longitude]}>
                   <div>
-                    <h2 style={{ color: "red" }}>{serviceData.serviceName}</h2>
-                    <h4>{serviceData.State}</h4>
-                    <h4>{serviceData.Pincode}</h4>
-                    <h4>{serviceData.email}</h4>
-                    <h4>{serviceData.Health_Facility_Name}</h4>
-                    <h4>{serviceData.District}</h4>
-                    <h4>{serviceData.Block_Name}</h4>
-                    <h4>{serviceData.Address}</h4>
-                    <h4>{serviceData.Date}</h4>
-                    <h4>{serviceData.Latitude}</h4>
-                    <h4>{serviceData.Longitude}</h4>
+                    <p style={{ color: "red" }}> {serviceData.serviceName}</p>
+                    <p>State : {serviceData.State}</p>
+                    <p>PinCode {serviceData.Pincode}</p>
+                    <p>Email :{serviceData.email || serviceData.Email_Nodal_Officer
+}</p>
+                    <p>{serviceData.Health_Facility_Name}</p>
+                    <p>District :{serviceData.District}</p>
+                    <p>{serviceData.Block_Name}</p>
+                    <p>Address :{serviceData.Address}</p>
+                    <p>Date :{serviceData.Date}</p>
+                    <p>Lat :{serviceData.Latitude}</p>
+                    <p>Long :{serviceData.Longitude}</p>
                     
                   </div>
                 </Popup>

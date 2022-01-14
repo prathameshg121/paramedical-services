@@ -30,7 +30,7 @@ export default function WelcomPage() {
         <section id="starter">
           <div className=" row homeContainer w-100 100vh">
             <div className=" col-lg-6 features-class banner">
-              <h1>Paramedical Services</h1>
+              <h1>Paramedical Help</h1>
               <h3>Bring The Future of</h3>
               <h3>Health Care</h3>
               <button onClick={UserSignUpPage}>Get Started</button>

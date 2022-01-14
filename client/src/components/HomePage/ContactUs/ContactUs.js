@@ -70,7 +70,9 @@ export const ContactUs = (props) => {
               </div>
             </div>
           </div>
+          <button className="btn-primary contact-btn" style={{margin:"30px"}}>Send</button>
         </div>
+       
       </div>
     </div>
   );

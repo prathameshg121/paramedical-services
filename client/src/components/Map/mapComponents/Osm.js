@@ -314,7 +314,7 @@ setDateval(event.target.value)
           {nearByMe ? (
             <div class="near-by-container">
               <p style={{ color: "#3edbf0" }}>Near by services</p>
-              <h6>Enter Radius in Km</h6>
+              <h6 style={{ color: "#3edbf0" }}>Enter Radius in Km</h6>
               <input onChange={handleRadiusChange} value={radiusValue}></input>
               <button onClick={getDataUnderRadi} style={{ color: "black" }}>
                 Find
@@ -357,7 +357,7 @@ setDateval(event.target.value)
           {
             findbyDate ? (
               <div class="near-by-container">
-              <h4>Find Till the date </h4>
+              <h4>Find From the date </h4>
               <input type="date" onChange={handleDateVal} value={Dateval}></input>
               <button
           style={{color:"black"}}
@@ -374,7 +374,7 @@ setDateval(event.target.value)
             class="button round blue"
             style={{ width: "50%" }}
             onClick={displaystateblock}
-          >Find By state </a>
+          >Find By District </a>
             {
               districtshow?(
                 <div class="near-by-container">

@@ -113,19 +113,19 @@ export default function WelcomPage() {
             </div>
             <hr class="end-homepage-line"></hr>
             <h5>Follow</h5>
-            <a style={{margin:"15px"}}
-              hrf="https://twitter.com/minimalmonkey"
+            <a style={{margin:"20px"}}
+              hrf="https://twitter.com/i_m_shivv"
               class="icon-button twitter"
             >
               <i class="fab fa-twitter icon-twitter"></i>
               <span></span>
             </a>
-            <a style={{margin:"15px"}}
+            <a style={{margin:"20px"}}
              href="https://facebook.com" class="icon-button facebook">
               <i class="fab fa-facebook-f icon-facebook"></i>
               <span></span>
             </a>
-            <a style={{margin:"15px"}} 
+            <a style={{margin:"20px"}} 
             href="https://plus.google.com" class="icon-button google-plus">
               <i class="fab fa-google-plus-g icon-google-plus"></i>
               <span></span>

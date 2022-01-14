@@ -5,7 +5,7 @@ export const ContactUs = (props) => {
     <div className="contact_info">
       <div className="container-fluid">
         <div className="row contact-card">
-          <div className="col-lg-10 offset-lg-1 d-flex justify-content-between m-5 ml-3">
+          <div className="col-lg-10 offset-lg-1 d-flex justify-content-between">
             {/* Phone Number */}
 
             <div className="text-center shadow px-3 phone-info contact_info_item border  d-flex align-items-center " >

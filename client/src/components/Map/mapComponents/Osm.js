@@ -442,7 +442,7 @@ setDateval(event.target.value)
         </div>
 
         <div class="content" id="home">
-          <h2 style={{color:"white"}}>{servicetype} Services</h2>
+          <h2 style={{color:"Black"}}>{servicetype} Services</h2>
           {/* <h3>Availability : {availabilityCount}</h3> */}
           <MapContainer
             center={[17.3674, 76.5359]}

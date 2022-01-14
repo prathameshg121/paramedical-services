@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color: #dd1111;
 	
   }
@@ -9,7 +9,8 @@ body {
         background: -moz-radial-gradient(circle, rgb(108, 133, 202) -60%, rgba(0, 0, 0, 0.8901960784313725) 75%);
         background: -o-radial-gradient(circle, rgb(158, 171, 207) -60%, rgba(0, 0, 0, 0.8901960784313725) 75%);
   }
-  
+   */
+   
    select {
         width: 150px;
         margin: 10px;
@@ -477,13 +478,13 @@ h6 {
 
 /*navigation bar*/
 
-.navbar {
+/* .navbar {
 	margin-bottom: 0;
 	background-color: rgba(0, 0, 0, 0.84);
 	font-size: 12px;
 	letter-spacing: 6px;
 	font-family: Montserrat, sans-serif;
-}
+} */
 
 
 /* background */
@@ -954,4 +955,10 @@ padding: 5%;
 
 .table-home{
   margin-bottom: 25px;
+}
+
+
+.header4{
+  z-index: 1;
+  font-family: sans-serif ;
 }

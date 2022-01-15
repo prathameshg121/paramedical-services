@@ -119,3 +119,39 @@ exports.get_Request_byDate = (req, res, next) => {
 //   })
     
 // }
+
+let textval ;
+exports.sendMail = (req, res, next) => {
+  console.log(req.body.email);
+  textval = " Name : " + req.body.name + " Email :" + req.body.email + " phone Number :" + req.body.phoneNo + " FeedBack : " + req.body.feedback;
+  var transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+        user: 'servicesparamedical2@gmail.com',
+        pass: 'Project@123'
+    }
+  });
+
+  var mailOptions = {
+    from: 'servicesparamedical2@gmail.com',
+    to: 'servicesparamedical2@gmail.com',
+    subject:'FeedBack',
+    text: " Name : " + req.body.name + " Email :" + req.body.email + " phone Number :" + req.body.phoneNo + " FeedBack : " + req.body.feedback
+    // html: '<h1>Hi Smartherd</h1><p>Your Messsage</p>'
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    }
+    else {
+      console.log('Email sent: ' + info.response);
+      return res.status(200).json({
+          result: "Email Send Successfully",
+      });
+    }
+  });
+};
+

@@ -1,6 +1,39 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 export const ContactUs = (props) => {
+
+
+  const [feedBackData, setfeedBackData] = useState({
+    name :"",
+    email : "",
+    phoneNo : "",
+    feedback : "",
+  });
+  function handleChange(event){
+    const {name, value} = event.target;
+    setfeedBackData(
+      (prev)=>
+      {
+      return{
+      ...prev,
+      [name] :value
+      }
+    }
+    );
+}
+function SendFeedbackData(){
+console.log(feedBackData)
+const data = {
+  name: feedBackData.name,
+  email : feedBackData.email,
+  phoneNo : feedBackData.phoneNo,
+  feedback : feedBackData.feedback
+};
+axios.post(`http://localhost:5000/request/sendMail`, feedBackData)
+}
+
+
   return (
     <div className="contact_info">
       <div className="container-fluid">
@@ -52,11 +85,11 @@ export const ContactUs = (props) => {
                   <form id="contact_form">
                       <div className="contact_form_named d-flex justify-content-between align-items-between">
                           <input type="text" id="contact_form_name" className="contact_form_name input_field"
-                          placeholder="Your Name" required="true" />
+                          placeholder="Your Name" name="name" onChange={handleChange} value={feedBackData.name} required="true" />
                           <input type="text" id="contact_form_email" className="contact_form_name input_field"
-                          placeholder="Your Email" required="true" />
+                          placeholder="Your Email" name="email" onChange={handleChange} value={feedBackData.email} required="true" />
                           <input type="text" id="contact_form_phone" className="contact_form_name input_field"
-                          placeholder="Your Phone Number" required="true" />
+                          placeholder="Your Phone Number" name="phoneNo" onChange={handleChange} value={feedBackData.phoneNo} required="true" />
 
 
 
@@ -64,13 +97,13 @@ export const ContactUs = (props) => {
 
 
                     <div className="contact_form_text mt-5">
-                        <textarea className="text_field contact_form_message" placeholder="Message" cols="122" rows="10"></textarea>
+                        <textarea className="text_field contact_form_message" name="feedback" onChange={handleChange} value={feedBackData.feedback} placeholder="Message" cols="122" rows="10"></textarea>
                     </div>
                   </form>
               </div>
             </div>
           </div>
-          <button className="btn-primary contact-btn" style={{margin:"30px"}}>Send</button>
+          <button className="btn-primary contact-btn" style={{margin:"30px"}} onClick={SendFeedbackData}>Send</button>
         </div>
        
       </div>

@@ -1,11 +1,15 @@
 import React from "react";
+import Header from "../Header/Header";
 
 export const ContactUs = (props) => {
   return (
-    <div className="contact_info">
+<div>
+    <Header/>
+
+    <div className="contact_info m-t-40">
       <div className="container-fluid">
         <div className="row contact-card">
-          <div className="col-lg-10 offset-lg-1 d-flex justify-content-between">
+          <div className="col-lg-10 offset-lg-1 d-flex ">
             {/* Phone Number */}
 
             <div className="text-center shadow px-3 phone-info contact_info_item border  d-flex align-items-center " >
@@ -39,7 +43,7 @@ export const ContactUs = (props) => {
 
       {/* Contact Form */}
 
-      <div className="contact_form" >
+      <div className="contact_form m-t-40" >
         <div className="container shadow  border">
           <div className="row">
             <div className="col-lg-10 offset-lg-1">
@@ -70,10 +74,13 @@ export const ContactUs = (props) => {
               </div>
             </div>
           </div>
-          <button className="btn-primary contact-btn" style={{margin:"30px"}}>Send</button>
+          <button className="btn-primary contact-btn " style={{marginLeft :"500px",  marginBottom :"50px", padding :"10px"}}>Send Feedback</button>
         </div>
        
       </div>
     </div>
+
+
+</div>
   );
 };

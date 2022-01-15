@@ -36,23 +36,23 @@ export default function DataInRadius (props){
   <div style={{display:"inline-block"}}>
  
  <div>
-  <label >latitude</label>
+  <h6 style={{color: "#0014f2"}}>Latitude</h6>
     <input  class="form-control" style={{width:"70%"}} aria-describedby="emailHelp"onChange={handleChange} placeholder="latitude" name="latitude" value={coOrdinates.latitude} />
 </div>
 
 <div>
   
-    <label >longitude</label>
+    <h6 style={{color: "#0014f2"}}>longitude</h6>
     <input  class="form-control" style={{width:"70%"}}  id="exampleInputPassword1"onChange={handleChange} placeholder="longitude" name="longitude" value={coOrdinates.longitude} />
     </div>
 
 <div>
-    <label >Radius in Km</label>
+    <h6 style={{color: "#0014f2"}} >Radius in Km</h6>
     <input  class="form-control"onChange={handleChange} style={{width:"70%"}} placeholder="Radius" name="radius" value={coOrdinates.radius} />
 </div>
-
+ <button type="submit" style={{width:"100px",}} onClick={handleClick} class="btn btn-primary">Find </button>
     </div>
-    <button type="submit" style={{width:"100px", margin:"5px"}} onClick={handleClick} class="btn btn-primary">Find </button>
+   
   </div>
 
 </form>

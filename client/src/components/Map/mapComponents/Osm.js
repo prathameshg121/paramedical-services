@@ -9,6 +9,29 @@ import "leaflet/dist/leaflet.css";
 import icon from "./constants";
 import DataInRadius from "./DataInRadius";
 import RequestService from "../../HomePage/Request/RequestService";
+import SideContainer from "./SideContainer";
+
+//import react pro sidebar components
+import {
+  ProSidebar,
+  Menu,
+  MenuItem,
+  SidebarHeader,
+  SidebarFooter,
+  SidebarContent,
+} from "react-pro-sidebar";
+
+//import icons from react icons
+import { FaList, FaRegHeart } from "react-icons/fa";
+import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+import { RiPencilLine } from "react-icons/ri";
+import { BiCog } from "react-icons/bi";
+
+
+//import sidebar css from react-pro-sidebar module and our custom css 
+import "react-pro-sidebar/dist/css/styles.css";
+// import "./Header.css";
+
 
 export default function Osm(props) {
   const [servicetype, setservicetype] = useState("");
@@ -67,7 +90,7 @@ export default function Osm(props) {
         console.log(res.data[0].Longitude);
         setfilterData(res.data);
         //  setVaccinData(res.data)
-        //  setservicetype("Vaccination")
+         setservicetype("Request")
       })
       .catch((error) => {
         console.log("Request Data not found");
@@ -83,7 +106,7 @@ export default function Osm(props) {
       .post(`http://localhost:5000/request/getrequestbydate`, data)
       .then((res) => {
         console.log("healthFacilities found req by date ");
-        console.log(res.data);
+        // console.log(res.data);
         setfilterData(res.data);
         //  setVaccinData(res.data)
         //  setservicetype("Vaccination")
@@ -133,7 +156,7 @@ export default function Osm(props) {
         setPosition(e.latlng);
         map.flyTo(e.latlng, map.getZoom());
         const radius = e.accuracy;
-        console.log(radius);
+        // console.log(radius);
         const circle = L.circle(e.latlng, 100);
         circle.addTo(map);
         setBbox(e.bounds.toBBoxString().split(","));
@@ -147,7 +170,7 @@ export default function Osm(props) {
     };
     // props.setlat(obje)
 
-    console.log(bbox[1] + "box 1");
+    // console.log(bbox[1] + "box 1");
 
     return position === null ? null : (
       <Marker position={position} icon={icon}>
@@ -184,7 +207,7 @@ export default function Osm(props) {
           userLong
         );
 
-        // console.log(radiusValue >= getRadius)
+        console.log(radiusValue >= getRadius)
         // if(radiusValue >= getRadius){
         //   count = count +1;
         //   console.log(getRadius + " radius " + radiusValue + " " + count);
@@ -280,16 +303,44 @@ setDateval(event.target.value)
   function displaystateblock(){
     setdistrictshow(!districtshow)
   }
+      //create initial menuCollapse state using useState hook
+      const [menuCollapse, setMenuCollapse] = useState(false)
+
+      //create a custom function that will change menucollapse state from false to true and true to false
+    const menuIconClick = () => {
+      //condition checking to change state from true to false and vice versa
+      menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+    };
+
+    const [showservices, setshowservices] = useState(false)
+
+    function showDropDownOfService(){
+  setshowservices(!showservices)
+    }
+
+    const [showSearchItems, setshowSearchItems] = useState(false)
+    function showSearchIcon(){
+      setshowSearchItems(!showSearchItems);
+    }
+
+    const [DisplayRequest, setDisplayRequest] = useState(false)
+
+    function showRequest(){
+      setDisplayRequest(!DisplayRequest);
+    }
+
+    const [DisplaySearchOfReq, setDisplaySearchOfReq] = useState(false)
+    function showSearchRequestshow(){
+      setDisplaySearchOfReq(!DisplaySearchOfReq)
+    }
 
   return (
     <div>
-      {/* 
-      <SearchBoxState getState={setState} />
-     
-     
-    */}
+   {/* <SideContainer/> */}
 
+   
       <div>
+{/*     
         <div class="sidebar">
          
 
@@ -308,9 +359,7 @@ setDateval(event.target.value)
           </a>
 
           <hr />
-          <a class="button round blue" onClick={handleNearby}>
-            Find Nearby
-          </a>
+         
           {nearByMe ? (
             <div class="near-by-container">
               <p style={{ color: "#3edbf0" }}>Near by services</p>
@@ -425,9 +474,9 @@ setDateval(event.target.value)
         <option value="Yavatmal">Yavatmal</option>
 
 
-        {/* */}
+       
         
-      </select>
+       </select>
               <button
           style={{color:"black"}}
             onClick={getRequestByState}
@@ -437,11 +486,244 @@ setDateval(event.target.value)
             </div>
               ):("")
             }
+      
+        </div> 
+        */} 
+        <div id="header">
+          {/* collapsed props to change menu size using menucollapse state */}
+        <ProSidebar collapsed={menuCollapse}>
+          <SidebarHeader>
+          <div className="logotext">
+              {/* small and big change using menucollapse state */}
+              <p>{menuCollapse ? "A" : "Analysis"}</p>
+            </div>
+            <div className="closemenu" onClick={menuIconClick}>
+                {/* changing menu collapse icon on click */}
+              {menuCollapse ? (
+                <FiArrowRightCircle/>
+              ) : (
+                <FiArrowLeftCircle/>
+              )}
+            </div>
+          </SidebarHeader>
+          <SidebarContent>
+            <Menu iconShape="square">
+              <MenuItem active={true} icon={<FiHome style={{width:"30px"}} />} onClick={showDropDownOfService}>
+                Services
+              </MenuItem>
+              {
+                showservices ? (
+                  <div>
+                  <MenuItem> <div 
+            onClick={getVacciData}>
+                    <h4 style={{ color: "#00a4e6", cursor: "pointer" }}> Vaccination Center</h4>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem>
+                  <div
+          
+            onClick={getBloodData}
+          >
+             <h4 style={{ color: "#00a4e6", cursor: "pointer" }}>Blood Banks</h4>
+          </div>
+                  </MenuItem>
+                  <MenuItem>
+                  <div
+           
+           onClick={showSearchIcon}
+          >
+           
+            <h4 style={{ color: "#00a4e6", cursor: "pointer" }}>Search</h4>
+          </div>
+                  </MenuItem>
+
+                  {showSearchItems ? (
+                    <div>
+                    <MenuItem>
+                      <div >
+          
+            <h5 onClick={handleNearby} >.   Find Nearby</h5>
+          </div>
+                      </MenuItem>
+                      {nearByMe ? (
+            <div class="near-by-container">
+              <h6 style={{ color: "#0014f2" }}>Near by services</h6>
+              <h6 style={{ color: "#0014f2" }}>Enter Radius in Km</h6>
+              <input onChange={handleRadiusChange} value={radiusValue}></input>
+              <button onClick={getDataUnderRadi} style={{ color: "black" }}>
+                Find
+              </button>
+              
+            </div>
+          ) : (
+            ""
+          )}
+
+          <MenuItem>
+                      <div >
+                      <h5  
+            style={{ width: "50%" }}
+            onClick={handleLatLongDisplay}>.  Find By Lat-Long</h5>
+           
+          </div>
+          {latlongDisplay ? (
+            <div class="near-by-container">
+              <h5>Enter Coordinate </h5>
+              <h5>details to Find Health</h5>
+              <h5>Facilities.</h5>
+              <DataInRadius sendLatLong={getLatLong} />
+            </div>
+          ) : (
+            ""
+          )}
+          </MenuItem>
+                    </div>
+                     
+                  ):("")
+                    
+                  }
+
+
+
+                 
+                  </div>
+                 
+                ) :("")
+              }
+
+              <MenuItem icon={<FaList />} onClick={showRequest}>Request</MenuItem>
+
+              {DisplayRequest ? (
+                <div>
+                <MenuItem>
+              <div
+            style={{ color: "#00a4e6", cursor: "pointer" }}
+            onClick={getRequestData}
+          >
+            <h4>Request Service</h4>
+          </div>
+              </MenuItem>
+              
+              <MenuItem>
+              <div
+            style={{ color: "#00a4e6", cursor: "pointer" }}
+            onClick={showSearchRequestshow}
+          >
+            <h4>Search</h4>
+          </div>
+              </MenuItem>
+              {DisplaySearchOfReq ? (
+                <div>
+                  <MenuItem
+            onClick={showfindByDateBox}
+          >
+          <div>
+          <h5>. Find By Date </h5>
+          </div>
+         
+                  </MenuItem>
+                  {
+            findbyDate ? (
+              <div class="near-by-container">
+              <h4 style={{color:"#0014f2"}}>Find From the date </h4>
+              <input type="date" onChange={handleDateVal} value={Dateval}></input>
+              <button
+          style={{color:"black"}}
+            onClick={getRequestDataByDate}
+          >
+            Find
+          </button>
+            </div>
+            ) : ("")
+          }
+
+                  <MenuItem   
+          
+   
+            onClick={displaystateblock}
+          >
+            <h5 >. Find By District </h5>
+                  </MenuItem>
+                  {
+              districtshow?(
+                <div class="near-by-container">
+              <h4 style={{color:"#0014f2"}}>Find by District </h4>
+              <select
+        class="form-select nnnm"
+        onChange={handleStateChange}
+        aria-label="Default select example"
+        name="state"
         
+       
+      >
+        <option selected>All</option>
+        <option value="Ahmednagar">Ahmednagar</option>
+        <option value="Akola">Akola</option>
+        <option value="Amravati">Amravati</option>
+        <option value="Aurangabad">Aurangabad</option>
+        <option value="Beed">Beed</option>
+        <option value="Bhandara">Bhandara</option>
+        <option value="Buldhana">Buldhana</option>
+        <option value="Chandrapur">Chandrapur</option>
+        <option value="Dhule">Dhule</option>
+        <option value="Gadchiroli">Gadchiroli</option>
+        <option value="Gondia">Gondia</option>
+        <option value="Hingoli">Hingoli</option>
+        <option value="Jalgaon">Jalgaon</option>
+        <option value="Jalna">Jalna</option>
+        <option value="Kolhapur">Kolhapur</option>
+        <option value="Latur">Latur</option>
+        <option value="Mumbai-City">Mumbai-City</option>
+        <option value="Mumbai-Suburban">Mumbai-Suburban</option>
+        <option value="Nagpur">Nagpur</option>
+        <option value="Nanded">Nanded</option>
+        <option value="Nandurbar">Nandurbar</option>
+        <option value="Osmanabad">Osmanabad</option>
+        <option value="Palghar">Palghar</option>
+        <option value="Parbhani">Parbhani</option>
+        <option value="Pune">Pune</option>
+        <option value="Raigad">Raigad</option>
+        <option value="Ratnagiri">Ratnagiri</option>
+        <option value="Sangli">Sangli</option>
+        <option value="Satara">Satara</option>
+        <option value="Sindhudurg">Sindhudurg</option>
+        <option value="Solapur">Solapur</option>
+        <option value="Thane">Thane</option>
+        <option value="Wardha">Wardha</option>
+        <option value="Washim">Washim</option>
+        <option value="Yavatmal">Yavatmal</option>
+
+
+       
         
-        </div>
+       </select>
+              <button
+          style={{color:"black"}}
+            onClick={getRequestByState}
+          >
+            Find
+          </button>
+            </div>
+              ):("")
+            }
+                </div>
+              ) :("")}
+                </div>
+              
+              ):("")}
+             
+             
+            </Menu>
+          </SidebarContent>
+          <SidebarFooter>
+            
+          </SidebarFooter>
+        </ProSidebar>
+      </div>
 
         <div class="content" id="home">
+      
           <h2 style={{color:"Black"}}>{servicetype} Services</h2>
           {/* <h3>Availability : {availabilityCount}</h3> */}
           <MapContainer
